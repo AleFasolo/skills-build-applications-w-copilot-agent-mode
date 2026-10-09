@@ -1,4 +1,5 @@
 import ResourceTable from './ResourceTable.jsx'
+import useFetchApiResource from './useFetchApiResource.js'
 
 const columns = [
   { key: 'rank', label: 'Rank' },
@@ -9,13 +10,19 @@ const columns = [
 ]
 
 export default function Leaderboard() {
+  const path = '/api/leaderboard/'
+  const { items, loading, error } = useFetchApiResource(path)
+
   return (
     <ResourceTable
       title="Leaderboard"
       description="Celebrate the members and teams earning the most points."
-      path="/api/leaderboard/"
+      path={path}
       columns={columns}
       emptyMessage="The leaderboard is ready for its first results."
+      items={items}
+      loading={loading}
+      error={error}
     />
   )
 }

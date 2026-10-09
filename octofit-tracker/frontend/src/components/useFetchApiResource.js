@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { fetchItems } from '../api.js'
 
-export default function useApiResource(path) {
+export default function useFetchApiResource(path) {
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')

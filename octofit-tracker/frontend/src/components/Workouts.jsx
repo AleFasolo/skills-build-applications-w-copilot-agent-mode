@@ -1,4 +1,5 @@
 import ResourceTable from './ResourceTable.jsx'
+import useFetchApiResource from './useFetchApiResource.js'
 
 const columns = [
   { key: 'title', label: 'Workout' },
@@ -9,13 +10,19 @@ const columns = [
 ]
 
 export default function Workouts() {
+  const path = '/api/workouts/'
+  const { items, loading, error } = useFetchApiResource(path)
+
   return (
     <ResourceTable
       title="Workouts"
       description="Choose a session that fits your goals and energy."
-      path="/api/workouts/"
+      path={path}
       columns={columns}
       emptyMessage="No workouts are available right now."
+      items={items}
+      loading={loading}
+      error={error}
     />
   )
 }

@@ -1,5 +1,3 @@
-import useApiResource from './useApiResource.js'
-
 function valueFor(row, column) {
   if (column.render) return column.render(row)
 
@@ -11,9 +9,7 @@ function valueFor(row, column) {
   return String(value)
 }
 
-export default function ResourceTable({ title, description, path, columns, emptyMessage }) {
-  const { items, loading, error } = useApiResource(path)
-
+export default function ResourceTable({ title, description, path, columns, emptyMessage, items, loading, error }) {
   return (
     <section aria-labelledby={`${path}-heading`} className="resource-section">
       <div className="resource-heading">

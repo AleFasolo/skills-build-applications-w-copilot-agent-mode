@@ -1,4 +1,5 @@
 import ResourceTable from './ResourceTable.jsx'
+import useFetchApiResource from './useFetchApiResource.js'
 
 function formatDate(value) {
   if (!value) return '-'
@@ -16,13 +17,19 @@ const columns = [
 ]
 
 export default function Activities() {
+  const path = '/api/activities/'
+  const { items, loading, error } = useFetchApiResource(path)
+
   return (
     <ResourceTable
       title="Activities"
       description="Recent movement logged by your community."
-      path="/api/activities/"
+      path={path}
       columns={columns}
       emptyMessage="No activities have been logged yet."
+      items={items}
+      loading={loading}
+      error={error}
     />
   )
 }
