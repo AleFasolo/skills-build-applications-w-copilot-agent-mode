@@ -21,10 +21,10 @@ function listResource(model: typeof User): RequestHandler {
       response.json(resources);
     } catch (error) {
       next(error);
-    }
+    } 
   };
 }
-
+//sds
 app.get('/api/health', (_request, response) => {
   response.json({ status: 'ok', baseUrl });
 });
