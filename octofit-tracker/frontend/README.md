@@ -1,16 +1,30 @@
-# React + Vite
+# OctoFit Tracker presentation tier
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+The React 19 and Vite frontend uses React Router for the activities, leaderboard,
+teams, members, and workouts views. It requests data from the API on port 8000.
 
-Currently, two official plugins are available:
+## Configure the API URL
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+When running in a Codespace, define `VITE_CODESPACE_NAME` in
+`octofit-tracker/frontend/.env.local` using the Codespace name (not the full
+forwarded URL):
 
-## React Compiler
+```dotenv
+VITE_CODESPACE_NAME=your-codespace-name
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Vite uses this to build the API base URL
+`https://<VITE_CODESPACE_NAME>-8000.app.github.dev`. This variable must be
+defined in a Codespace so the browser can reach its forwarded API port. If it
+is unset, the app safely falls back to `http://localhost:8000` for local
+development. Restart the Vite server after changing `.env.local`.
 
-## Expanding the Oxlint configuration
+## Run locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```bash
+npm install --prefix octofit-tracker/frontend
+npm run dev --prefix octofit-tracker/frontend
+```
+
+The frontend calls `/api/activities/`, `/api/leaderboard/`, `/api/teams/`,
+`/api/users/`, and `/api/workouts/` on the configured API base URL.
