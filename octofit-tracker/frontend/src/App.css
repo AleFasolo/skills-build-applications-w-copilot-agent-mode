@@ -1,0 +1,134 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  padding: 2.5rem 0 1.25rem;
+  color: #fff;
+  background: linear-gradient(125deg, #123b4a, #147d73);
+}
+
+.app-eyebrow,
+.section-kicker {
+  margin: 0 0 0.35rem;
+  color: #a8e6d8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.app-header h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.app-header .nav {
+  gap: 0.5rem;
+}
+
+.app-header .nav-link {
+  color: #e3f5ef;
+}
+
+.app-header .nav-link:hover,
+.app-header .nav-link.active {
+  color: #123b4a;
+  background-color: #fff;
+}
+
+.app-content {
+  flex: 1;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.resource-section {
+  text-align: left;
+}
+
+.resource-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.resource-heading h2 {
+  margin: 0 0 0.4rem;
+  color: #123b4a;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+}
+
+.resource-heading .section-kicker {
+  color: #147d73;
+}
+
+.resource-heading .text-secondary {
+  margin: 0;
+}
+
+.resource-heading .badge {
+  flex: 0 0 auto;
+  padding: 0.6rem 0.8rem;
+  color: #24564e !important;
+}
+
+.resource-message {
+  color: #52646b;
+}
+
+.resource-table-wrap {
+  overflow: hidden;
+  border: 1px solid #dce7e5;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 0.5rem 1.5rem rgb(18 59 74 / 7%);
+}
+
+.resource-table-wrap thead {
+  color: #24564e;
+  background: #eff8f5;
+}
+
+.resource-table-wrap th,
+.resource-table-wrap td {
+  padding: 0.9rem 1rem;
+}
+
+.app-footer {
+  padding: 1.25rem;
+  color: #52646b;
+  background: #f3f8f6;
+  text-align: center;
+}
+
+@media (max-width: 575px) {
+  .app-header {
+    padding-top: 1.75rem;
+  }
+
+  .app-header .nav {
+    gap: 0.25rem;
+  }
+
+  .app-header .nav-link {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.9rem;
+  }
+
+  .app-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .resource-heading {
+    align-items: flex-start;
+  }
+}
